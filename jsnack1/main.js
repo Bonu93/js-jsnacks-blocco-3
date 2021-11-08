@@ -109,8 +109,8 @@ players.forEach( player => {
 })
 
 //new array with best players
-const dreamteam = players.filter( (player) => player.threePtPerc >= 80 && player.ppg >= 35);
-console.table(dreamteam);
+const dreamTeam = players.filter( (player) => player.threePtPerc >= 80 && player.ppg >= 35);
+console.table(dreamTeam);
 
 
 
