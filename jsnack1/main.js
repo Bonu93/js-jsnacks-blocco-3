@@ -101,7 +101,7 @@ const players = [
     }
 ];
 
-//assign dynamic properties
+//add dynamic properties
 players.forEach( player => {
     player.code = genString(3, characters) + genString(3, numbers);
     player.ppg = parseFloat(genRandNum(0, 50).toFixed(2));
