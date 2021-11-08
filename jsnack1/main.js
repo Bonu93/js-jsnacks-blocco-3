@@ -108,8 +108,6 @@ players.forEach( player => {
     player.threePtPerc = parseFloat(genRandNum(0, 100).toFixed(2));
 })
 
-console.table(players);
-
 //new array with best players
 const dreamTeam = players.filter( player => player.threePtPerc >= 80 && player.ppg >= 35);
 console.table(dreamTeam);
