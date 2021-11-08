@@ -1,4 +1,4 @@
-/** 
+/********************
 Snack 1
 1. Creare un oggetto che rappresenti un giocatore di basket, con le seguenti proprietà:
 - Codice giocatore
@@ -14,11 +14,8 @@ Snack 1
 3. Stampare Nome, cognome, età e codice giocatore.
 4. Creare un array di 10 giocatori di basket, con le regole sopra indicate
 5. Creare un nuovo array con i giocatori che hanno una media di punti superiore a 35 e la percentuale di successo per i tiri da 3 punti superiore all’80%.
-Snack 2
-A partire da un array di numeri, genera un secondo array con le potenze al quadrato di ogni numero.
-Es: [1, 2, 3, 4, 5] => [1, 4, 9, 16, 25]
 
-*/
+*********************/
 
 
 //strings to gen player code
@@ -26,7 +23,7 @@ const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const numbers = '0123456789';
 
 //basketball player
-const player = {
+const bkPlayer = {
     code: genString(3, characters) + genString(3, numbers),
     name: 'Stephen',
     lastName: 'Curry',
@@ -36,8 +33,118 @@ const player = {
 };
 
 //print player details
-const {name, lastName, age, code} = player;
+const {name, lastName, age, code} = bkPlayer;
 console.table({name, lastName, age, code});
+
+
+//players array
+const players = [
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Allen',
+        lastName: 'Iverson',
+        age: 25,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }, 
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Rasheed',
+        lastName: 'Wallace',
+        age: 30,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }, 
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Kobe',
+        lastName: 'Bryant',
+        age: 24,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }, 
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Ja',
+        lastName: 'Morant',
+        age: 21,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }, 
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Kevin',
+        lastName: 'Garnett',
+        age: 31,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    },
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Carlton',
+        lastName: 'Myers',
+        age: 29,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }, 
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Vince',
+        lastName: 'Carter',
+        age: 33,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }, 
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Tim',
+        lastName: 'Duncan',
+        age: 37,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }, 
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Shaquille',
+        lastName: "O'Neal",
+        age: 29,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    },
+
+    {
+        code: genString(3, characters) + genString(3, numbers),
+        name: 'Stephen',
+        lastName: 'Curry',
+        age: 33,
+        ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+        threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+    }
+];
+
+//new array with best players
+const dreamteam = players.filter( (player) => player.threePtPerc >= 80 && player.ppg >= 35);
+console.table(dreamteam);
+
+
+
+
+
+
+/**************** 
+Snack 2
+A partire da un array di numeri, genera un secondo array con le potenze al quadrato di ogni numero.
+Es: [1, 2, 3, 4, 5] => [1, 4, 9, 16, 25]
+*************/
+
 
 
 
@@ -72,8 +179,9 @@ function genString(charsNum, characters) {
 
 /**
  * 
- * @param {number} max 
- * generates a random number from 0 to max
+ * @param {number} min
+ * @param {number} max
+ * generates a random number from min to max
  */ 
 function genRandNum(min, max) {
     let rand = Math.random() * (max - min + 1) + min;
