@@ -108,8 +108,10 @@ players.forEach( player => {
     player.threePtPerc = parseFloat(genRandNum(0, 100).toFixed(2));
 })
 
+console.table(players);
+
 //new array with best players
-const dreamTeam = players.filter( (player) => player.threePtPerc >= 80 && player.ppg >= 35);
+const dreamTeam = players.filter( player => player.threePtPerc >= 80 && player.ppg >= 35);
 console.table(dreamTeam);
 
 
@@ -121,7 +123,7 @@ console.table(dreamTeam);
  * 
  * @param {number} charsNum 
  * @param {string} characters
- * @returns a random string of chars characters
+ * @returns a random string of charsNum characters
  */
 function genString(charsNum, characters) {
     let result = '';
