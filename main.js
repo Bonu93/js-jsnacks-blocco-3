@@ -20,4 +20,62 @@ Es: [1, 2, 3, 4, 5] => [1, 4, 9, 16, 25]
 
 */
 
-console.log('JS OK');
+
+//strings to gen player code
+const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const numbers = '0123456789';
+
+//basketball player
+const player = {
+    code: genString(3, characters) + genString(3, numbers),
+    name: 'Stephen',
+    lastName: 'Curry',
+    age: 33,
+    ppg: parseFloat(genRandNum(0, 50).toFixed(2)),
+    threePtPerc: parseFloat(genRandNum(0, 100).toFixed(2)),
+};
+
+//print player details
+const {name, lastName, age, code} = player;
+console.table({name, lastName, age, code});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************FUNCTIONS******************/
+
+/**
+ * 
+ * @param {number} charsNum 
+ * @param {string} characters
+ * @returns a random string of chars characters
+ */
+function genString(charsNum, characters) {
+    let result = '';
+    for ( let i = 0; i < charsNum; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    return result;
+}
+
+
+/**
+ * 
+ * @param {number} max 
+ * generates a random number from 0 to max
+ */ 
+function genRandNum(min, max) {
+    let rand = Math.random() * (max - min + 1) + min;
+    return rand;
+}
